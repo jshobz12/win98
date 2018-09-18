@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="./mainJS/index.js"></script>
+    <link rel="stylesheet" href="./mainCSS/index.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+
+</head>
+
+<body>
+    <div class="desktop-container">
+
+
+
+
+        <!-- this program has Avira pictures (like in the email) just for demo <!-->
+        <div class="desktop-icon-shortcut-Avira-Content2 ui-draggable ui-draggable-handle ui-droppable ui-widget-content draggable"
+            draggable="true" onclick="openAviraContent2();">
+            <div class="desktop-icon-wrapper-Avira-Content2"></div>
+            <div class="desktop-icon-title-Avira-Content2">Avira Content2</div>
+        </div>
+
+
+        <div class="taskbar">
+            <button class="start-button" title="Click here to begin">
+                <span class="start-button-text">Start</span>
+                <img class="start-button-logo">
+            </button>
+            <div class="tasks"></div>
+            <div class="tray">
+                <div class="tray-icons">
+                    <img class="tray-icon1">
+                    <img class="tray-icon2">
+                </div>
+                <div class="taskbar-time"></div>
+            </div>
+        </div>
+        <div class="start-menu not-shown">
+            <div class="start-menu-our-address" onmouseover="showOurAddress();">
+                <img class="start-menu-our-address-image">
+                <div class="start-menu-our-address-text">Our Address</div>
+                <img class="start-menu-our-address-arrow">
+            </div>
+            <div class="start-menu-contact-us" onmouseover="showContactUs();">
+                <img class=" start-menu-contact-us-image ">
+                <div class="start-menu-contact-us-text ">Contact Us</div>
+                <img class="start-menu-contact-us-arrow ">
+            </div>
+            <div class="start-menu-about-us" onmouseover="showAboutUs();">
+                <img class="start-menu-about-us-image ">
+                <div class="start-menu-about-us-text ">About Us</div>
+                <img class="start-menu-about-us-arrow ">
+            </div>
+        </div>
+        <div class="start-menu-contact-us-shown">Contact: info@aviratlv.com +972 (50) 846-1350</div>
+        <div class="start-menu-our-address-shown">Contact: info@aviratlv.com +972 (50) 846-1350</div>
+        <div class="start-menu-about-us-shown">Contact: info@aviratlv.com +972 (50) 846-1350</div>
+        <div class=" big-avira-desktop-logo "></div>
+
+
+        <div class='desktop-icon-opened-Avira-Content animated bounceIn ui-draggable ui-draggable-handle ui-droppable ui-widget-content draggable'>
+            <div class='desktop-icon-opened-top-bar'>
+                <button class='top-bar-nav-options-x'></button>
+                <button class='top-bar-nav-options-min'></button>
+                <button class='top-bar-nav-options-max'></button>
+            </div>
+            <div class='desktop-icon-opened-nav-bar'>
+                <div class='desktop-icon-opened-nav-bar-options'>
+                    <button class='File'>File</button>
+                    <button class='Edit'>Edit</button>
+                    <button class='View'>View</button>
+                    <div class="menu-container-file">
+                        <div class="menu-popup-file">
+                            <table class="menu-popup-table">
+                                <tr class="menu-row menu-item" tabindex="-1">
+                                    <td class="menu-item-label">
+                                        <span class="menu-hotkey">N</span>ew
+                                    </td>
+                                    <td class="menu-item-shortcut">Ctrl+N</td>
+                                </tr>
+                                <tr class="menu-row menu-item" tabindex="-1">
+                                    <td class="menu-item-label">
+                                        <span class="menu-hotkey">O</span>pen
+                                    </td>
+                                    <td class="menu-item-shortcut">Ctrl+O</td>
+                                </tr>
+                                <tr class="menu-row menu-item" tabindex="-1">
+                                    <td class="menu-item-label">
+                                        <span class="menu-hotkey">S</span>ave</td>
+                                    <td class="menu-item-shortcut">Ctrl+S</td>
+                                </tr>
+                                <tr class="menu-row menu-item" tabindex="-1">
+                                    <td class="menu-item-label">Save
+                                        <span class="menu-hotkey">A</span>s</td>
+                                    <td class="menu-item-shortcut">Ctrl+Shift+S</td>
+                                </tr>
+                                <tr class="menu-row menu-item" tabindex="-1">
+                                    <td class="menu-item-label">
+                                        <span class="menu-hotkey">E</span>xit</td>
+                                    <td class="menu-item-shortcut">Alt+F4</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class='desktop-icon-opened-nav-bar-search-container'>
+                    <button class='nav-bar-search-container-goback'>
+                        <img class='nav-bar-search-container-goback-image'>
+                    </button>
+                    <button class='nav-bar-search-container-home'>
+                        <img class='nav-bar-search-container-home-image'>
+                    </button>
+                    <input type='text' class='nav-bar-search-searchbar'>
+                    <button class='nav-bar-search-container-go'>Go</button>
+                </div>
+            </div>
+            <div class='desktop-icon-opened-content'>
+                <div class='desktop-icon-opened-content-container'>
+                    <div class='inner-content-icon-program1'>
+                        <div class='inner-content-icon-program1-title'>Avira Logo</div>
+                    </div>
+                    <div class='inner-content-icon-program2'>
+                        <div class='inner-content-icon-program2-title'>AviraReadMe.txt</div>
+                    </div>
+                    <div class='inner-content-icon-program3'>
+                        <div class='inner-content-icon-program3-title'>Avira.URL</div>
+                    </div>
+
+                </div>
+            </div>
+            <div class='desktop-icon-opened-footer'></div>
+        </div>
+
+        <div class='desktop-icon-opened-AviraTxt animated bounceIn ui-draggable ui-draggable-handle ui-droppable ui-widget-content draggable'>
+            <div class='desktop-icon-opened-top-bar'>
+                <button class='top-bar-nav-options-x'></button>
+                <button class='top-bar-nav-options-min'></button>
+                <button class='top-bar-nav-options-max'></button>
+            </div>
+            <div class='desktop-icon-opened-nav-bar'>
+                <div class='desktop-icon-opened-nav-bar-options'>
+                    <button class='File'>File</button>
+                    <button class='Edit'>Edit</button>
+                    <button class='View'>View</button>
+                </div>
+            </div>
+            <div class='desktop-icon-opened-content-AviraTxt'>
+                <textarea class='innerContentAviraTxt'>AvirA noun [a•vi•ra]1. a : The overall aesthetic effect of a work of art b : An intriguing or singular tone, effect, or appeal c : An atmosphere. 2. A mood or a feeling (good or bad vibrations). We are a full-service studio based in TLV. We create strategy, design & production of high quality content across all platforms. We specialize in Instagram, and our favorite color is pink. </textarea>
+            </div>
+        </div>
+
+        <div class='desktop-icon-opened-Avira-Content-2 animated bounceIn ui-draggable ui-draggable-handle ui-droppable ui-widget-content draggable'>
+            <div class='desktop-icon-opened-top-bar'>
+                <button class='top-bar-nav-options-x'></button>
+                <button class='top-bar-nav-options-min'></button>
+                <button class='top-bar-nav-options-max'></button>
+            </div>
+            <div class='desktop-icon-opened-nav-bar'>
+                <div class='desktop-icon-opened-nav-bar-options'>
+                    <button class='File'>File</button>
+                    <button class='Edit'>Edit</button>
+                    <button class='View'>View</button>
+                </div>
+                <div class='desktop-icon-opened-nav-bar-search-container'>
+                    <button class='nav-bar-search-container-goback'>
+                        <img class='nav-bar-search-container-goback-image'>
+                    </button>
+                    <button class='nav-bar-search-container-home'>
+                        <img class='nav-bar-search-container-home-image'>
+                    </button>
+                    <input type='text' class='nav-bar-search-searchbar'>
+                    <button class='nav-bar-search-container-go'>Go</button>
+                </div>
+            </div>
+            <div class='desktop-icon-opened-content'>
+                <div class='desktop-icon-opened-content-container-Avira-Content-2'>
+                    <div class='inner-content-icon-logo1'>
+                        <div class='inner-content-icon-logo1-title'>Avira Content</div>
+                    </div>
+                    <div class='inner-content-icon-logo2'>
+                        <div class='inner-content-icon-logo2-title'>Avira Content</div>
+                    </div>
+                    <div class='inner-content-icon-logo3'>
+                        <div class='inner-content-icon-logo3-title'>Avira Content</div>
+                    </div>
+                    <div class='inner-content-icon-logo4'>
+                        <div class='inner-content-icon-logo4-title'>Avira Content</div>
+                    </div>
+                    <div class='inner-content-icon-logo5'>
+                        <div class='inner-content-icon-logo5-title'>Avira Content</div>
+                    </div>
+                    <div class='inner-content-icon-logo6'>
+                        <div class='inner-content-icon-logo6-title'>Avira Content</div>
+                    </div>
+                    <div class='inner-content-icon-logo7'>
+                        <div class='inner-content-icon-logo7-title'>Avira Content</div>
+                    </div>
+                    <div class='inner-content-icon-logo8'>
+                        <div class='inner-content-icon-logo8-title'>Avira Content</div>
+                    </div>
+                    <div class='inner-content-icon-logo9'>
+                        <div class='inner-content-icon-logo9-title'>Avira Content</div>
+                    </div>
+                    <div class='inner-content-icon-logo10'>
+                        <div class='inner-content-icon-logo10-title'>Avira Content</div>
+                    </div>
+                    <div class='inner-content-icon-logo11'>
+                        <div class='inner-content-icon-logo11-title'>Avira Content</div>
+                    </div>
+                    <div class='inner-content-icon-logo12'>
+                        <div class='inner-content-icon-logo12-title'>Avira Content</div>
+                    </div>
+                    <div class='inner-content-icon-logo13'>
+                        <div class='inner-content-icon-logo13-title'>Avira Content</div>
+                    </div>
+                    <div class='inner-content-icon-logo14'>
+                        <div class='inner-content-icon-logo14-title'>Avira Content</div>
+                    </div>
+                    <div class='inner-content-icon-logo15'>
+                        <div class='inner-content-icon-logo15-title'>Avira Content</div>
+                    </div>
+                    <div class='inner-content-icon-logo16'>
+                        <div class='inner-content-icon-logo16-title'>Avira Content</div>
+                    </div>
+                </div>
+            </div>
+            <div class='desktop-icon-opened-footer'></div>
+        </div>
+
+
+
+
+        <!-- this is for the url iframe -->
+
+        <div class="iframeContainerURL x ui-draggable ui-draggable-handle ui-droppable ui-widget-content draggable">
+            <div class='desktop-icon-opened-top-bar-iframeURL'>
+                <button class='top-bar-nav-options-x'></button>
+                <button class='top-bar-nav-options-min'></button>
+                <button class='top-bar-nav-options-max'></button>
+
+            </div>
+            <iframe src="http://www.aviratlv.com/" style="height:400px; width:350px; resize:both; overflow: auto;" class="iframeURL">
+            </iframe>
+        </div>
+
+        <!-- this is for the image iframe -->
+        <div class="iframeContainerLogo ui-draggable ui-draggable-handle ui-droppable ui-widget-content draggable">
+            <div class='desktop-icon-opened-top-bar-iframeLogo'>
+                <button class='top-bar-nav-options-x'></button>
+                <button class='top-bar-nav-options-min'></button>
+                <button class='top-bar-nav-options-max'></button>
+
+            </div>
+            <iframe src="http://www.aviratlv.com/wp-content/uploads/2017/09/logo-300x300.png" class="iframeLogo">
+            </iframe>
+        </div>
+
+</body>
+
+</html>

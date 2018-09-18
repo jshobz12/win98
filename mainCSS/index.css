@@ -1,0 +1,4259 @@
+.body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  max-width: 99vw;
+  background-color: #fff;
+  max-height: 99vh;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.desktop-container {
+  height: 100vh;
+  /* need to chnage this width asap just set it to important so I could get started with layout */
+  width: 100vw !important;
+  background-image: url("./images/clouds.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#draggable {
+  height: 36px;
+  width: 36px;
+  padding: 0.5em;
+}
+
+.taskbar {
+  position: absolute;
+  z-index: 2;
+  bottom: 0vh;
+  left: 0;
+  right: 0;
+  height: 27px; /* not including outline part of border */
+  display: flex;
+  flex: 1;
+  border: 1px solid black;
+  background: #fbbebb;
+  border-top: 1px solid white;
+}
+
+.taskbar-time {
+  display: flex;
+  order: 3;
+  position: absolute;
+  right: -9px;
+  bottom: 0px;
+  width: 80px;
+}
+
+.tray {
+  display: flex;
+  background: #fbbebb;
+  height: 85%;
+  width: 8%;
+  flex-direction: row;
+  position: absolute;
+  right: 4px;
+  box-shadow: 1px 1px 0 #707070 inset, -1px -1px 0 white inset;
+  margin: 2px;
+  bottom: 1px;
+}
+
+.tray-icon1 {
+  background-image: url(./images/audio-okay-16x16.png);
+  height: 20px;
+  width: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  position: relative;
+  left: 21px;
+  order: 2;
+  margin: 2px;
+  top: -1px;
+}
+
+.tray-icon2 {
+  background-image: url(./images/task-scheduler-16x16.png);
+  height: 20px;
+  width: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  position: relative;
+  left: 2px;
+  margin: 2px;
+  bottom: 23px;
+}
+
+.start-menu {
+  position: absolute;
+  left: 0px;
+  bottom: 2vh;
+  width: 208px;
+  padding-left: 21px;
+  height: 340px;
+  max-height: calc(100vh - 26px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background: #fbbebb;
+  border: 1px solid black;
+  padding-top: 15px;
+  color: white;
+}
+.start-menu:after,
+.ui-slider-handle:after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-top: 1px solid #dfdfdf;
+  border-left: 1px solid #dfdfdf;
+  border-right: 1px solid #808080;
+  border-bottom: 1px solid #808080;
+}
+
+.not-shown {
+  display: none;
+}
+
+.start-menu-shown {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.start-menu-our-address {
+  display: flex;
+  order: 1;
+  width: 220px;
+}
+
+.start-menu-our-address-shown {
+  height: 20vh;
+  width: 165px;
+  position: absolute;
+  bottom: 17.7vh;
+  left: 207px;
+  background: #fbbebb;
+  border: 1px solid black;
+  text-align: center;
+  display: none;
+}
+
+.start-menu-about-us-shown {
+  height: 20vh;
+  width: 165px;
+  position: absolute;
+  bottom: 17.7vh;
+  left: 207px;
+  background: #fbbebb;
+  border: 1px solid black;
+  text-align: center;
+  display: none;
+}
+
+.not-shown-contact {
+  display: none !important;
+}
+.start-menu-contact-us-shown {
+  height: 20vh;
+  width: 165px;
+  position: absolute;
+  bottom: 17.7vh;
+  left: 207px;
+  background: #fbbebb;
+  border: 1px solid black;
+  text-align: center;
+  display: none;
+}
+.start-menu-our-address:hover {
+  background: blue;
+}
+
+.start-menu-our-address-image {
+  background-image: url("./images/folder.png");
+  height: 30px;
+  width: 32px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.start-menu-our-address-text {
+  position: relative;
+  height: 32px;
+  top: 5px;
+  left: 20px;
+}
+
+.start-menu-our-address-arrow {
+  background-image: url("https://daks2k3a4ib2z.cloudfront.net/57b0b52271bead8852aa6781/57b124d371bead8852ab0e91_Menu%20Arrow.png");
+  width: 23px;
+  position: relative;
+  top: 5px;
+  left: 43px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 20px;
+}
+
+.start-menu-contact-us {
+  display: flex;
+  order: 2;
+  width: 220px;
+}
+.start-menu-contact-us:hover {
+  background: blue;
+}
+.start-menu-contact-us-image {
+  background-image: url("./images/folder.png");
+  height: 30px;
+  width: 32px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.start-menu-contact-us-text {
+  position: relative;
+  height: 32px;
+  top: 5px;
+  left: 20px;
+}
+.start-menu-contact-us-arrow {
+  background-image: url("https://daks2k3a4ib2z.cloudfront.net/57b0b52271bead8852aa6781/57b124d371bead8852ab0e91_Menu%20Arrow.png");
+  width: 23px;
+  position: relative;
+  top: 5px;
+  left: 51px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 20px;
+}
+
+.start-menu-about-us {
+  display: flex;
+  order: 3;
+  width: 220px;
+}
+.start-menu-about-us:hover {
+  background: blue;
+}
+
+.start-menu-about-us-image {
+  background-image: url("./images/folder.png");
+  height: 30px;
+  width: 32px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.start-menu-about-us-text {
+  position: relative;
+  height: 32px;
+  top: 5px;
+  left: 20px;
+}
+
+.start-menu-about-us-arrow {
+  background-image: url("https://daks2k3a4ib2z.cloudfront.net/57b0b52271bead8852aa6781/57b124d371bead8852ab0e91_Menu%20Arrow.png");
+  width: 23px;
+  position: relative;
+  top: 5px;
+  left: 63px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 20px;
+}
+
+.window-close-button:focus {
+  outline: none;
+}
+
+.desktop-icon-wrapper-Avira-Content {
+}
+
+.desktop-icon-wrapper-Avira-ReadMe {
+}
+
+.desktop-icon-wrapper-AviraURL {
+}
+
+.start-button {
+  width: 57px;
+  background: #fbbebb;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+  box-shadow: inset 1px 1px #dfdfdf, 1px 0 #000, 0 1px #000, 1px 1px #000;
+  margin: 2px;
+  overflow-x: hidden;
+}
+
+.start-button-text {
+  height: 20px;
+  width: 23px;
+  position: absolute;
+  left: 24px;
+  top: 3px;
+}
+
+.start-button-logo {
+  background-image: url(./images/realStartLogo.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 15px;
+  width: 18px;
+  position: absolute;
+  left: 6px;
+  top: 5px;
+}
+
+.desktop-icon-shortcut-Avira-Content {
+  height: 36px;
+  width: 36px;
+  display: block;
+  background-image: url(./images/aviraLogoFullSize-32x32.png);
+  background-size: contain;
+  left: 10px;
+  top: 3vh;
+  justify-content: space-between;
+  position: relative;
+}
+.desktop-icon-shortcut-Avira-Content2 {
+  height: 36px;
+  width: 36px;
+  display: block;
+  background-image: url(./images/aviraLogoFullSize-32x32.png);
+  background-size: contain;
+  left: 10px;
+  top: 3vh;
+  justify-content: space-between;
+  position: relative;
+}
+.desktop-icon-shortcut-Avira-ReadMe {
+  height: 36px;
+  width: 36px;
+  display: block;
+  background-image: url(./images/notepad-file-32x32.png);
+  background-size: contain;
+  left: 10px;
+  top: 4vh;
+  justify-content: space-between;
+  position: relative;
+}
+.desktop-icon-shortcut-AviraURL {
+  height: 36px;
+  width: 36px;
+  display: block;
+  background-image: url(./images/explorer-32x32.png);
+  background-size: contain;
+  left: 6px;
+  top: 15vh;
+  justify-content: space-between;
+  position: relative;
+}
+
+.desktop-icon-title-Avira-Content {
+  font-family: sans-serif;
+  font-family: "MS Sans Serif", "Segoe UI", sans-serif;
+  font-size: 8pt;
+  color: white;
+  position: relative;
+  line-height: 13px;
+  font-size: 9px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  top: 37px;
+  left: -8px;
+  width: 80px;
+}
+
+.desktop-icon-title-Avira-Content2 {
+  font-family: sans-serif;
+  font-family: "MS Sans Serif", "Segoe UI", sans-serif;
+  font-size: 8pt;
+  color: white;
+  position: relative;
+  line-height: 13px;
+  font-size: 9px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  top: 37px;
+  left: -8px;
+  width: 80px;
+}
+.desktop-icon-title-Avira-ReadMe {
+  font-family: sans-serif;
+  font-family: "MS Sans Serif", "Segoe UI", sans-serif;
+  font-size: 8pt;
+  color: white;
+  position: relative;
+  line-height: 13px;
+  font-size: 9px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  top: 39px;
+  left: 0px;
+  width: 80px;
+}
+.desktop-icon-title-AviraURL {
+  font-family: sans-serif;
+  font-family: "MS Sans Serif", "Segoe UI", sans-serif;
+  font-size: 8pt;
+  color: white;
+  position: relative;
+  line-height: 13px;
+  font-size: 9px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  top: 39px;
+  left: 3px;
+  width: 80px;
+}
+
+.big-avira-desktop-logo {
+  position: absolute;
+  /* z-index: 222; */
+  bottom: 9vh;
+  width: 16vw;
+  height: 30vh;
+  background-image: url(./images/aviraLogoFullSize-32x32.png);
+  background-size: cover;
+  right: 2vw;
+}
+
+.desktop-icon-opened-Avira-Content {
+  left: 30vw;
+  top: 15vh;
+  height: 60vh;
+  width: 34vw;
+  position: absolute;
+  animation-duration: 1.2s;
+  animation-name: bounceIn;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  background: #c0c0c0;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+  display: none;
+}
+
+.desktop-icon-opened-top-bar {
+  position: relative;
+  background: #fbbebb;
+  height: 3vh;
+  width: 100%;
+}
+
+.desktop-icon-opened-top-bar-iframeURL {
+  position: relative;
+  background: #fbbebb;
+  height: 3vh;
+  width: 100%;
+}
+
+.desktop-icon-opened-top-bar-iframeLogo {
+  position: relative;
+  background: #fbbebb;
+  height: 3vh;
+  width: 300px;
+}
+.desktop-icon-opened-footer {
+  width: 99%;
+  height: 8%;
+  position: relative;
+  top: 8vh;
+  margin: 3px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  background: #c0c0c0;
+  border-top: 1px solid gray;
+  border-left: 1px solid gray;
+  border-right: 1px solid #dfdfdf;
+  border-bottom: 1px solid #dfdfdf;
+  box-shadow: 1px 0 #fff, 0 1px #fff, 1px 1px #fff;
+}
+
+.desktop-icon-opened-nav-bar {
+  position: absolute;
+  height: 8vh;
+  width: 100%;
+  top: 24px;
+  background: #c0c0c0;
+}
+
+.desktop-icon-opened-content {
+  width: 99%;
+  height: 70%;
+  position: relative;
+  left: 4px;
+  top: 8vh;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  background: white;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+
+.top-bar-nav-options-x {
+  position: absolute;
+  right: 0;
+  width: 17px;
+  font-size: 9px;
+  background-image: url("./images/x-button.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 17px;
+  margin: 3px;
+}
+.top-bar-nav-options-x:focus {
+  outline: none;
+}
+.top-bar-nav-options-min {
+  position: absolute;
+  right: 2vw;
+  width: 17px;
+  font-size: 9px;
+  background-image: url("./images/minimize-button.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 17px;
+  margin: 3px;
+}
+
+.top-bar-nav-options-min:focus {
+  outline: none;
+}
+.top-bar-nav-options-max {
+  position: absolute;
+  right: 1vw;
+  width: 17px;
+  font-size: 9px;
+  background-image: url("./images/max-screen.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 17px;
+  margin: 3px;
+}
+.top-bar-nav-options-max:focus {
+  outline: none;
+}
+
+.desktop-icon-opened-nav-bar-search-container {
+  display: flex;
+}
+
+.File {
+  border-color: transparent;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  background: #c0c0c0;
+  position: relative;
+  bottom: 11px;
+}
+.File:focus {
+  outline: none;
+}
+
+.View {
+  border-color: transparent;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  background: #c0c0c0;
+  position: relative;
+  bottom: 11px;
+}
+.View:focus {
+  outline: none;
+}
+
+.Edit {
+  border-color: transparent;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  background: #c0c0c0;
+  position: relative;
+  bottom: 11px;
+}
+.Edit:focus {
+  outline: none;
+}
+.nav-bar-search-container-goback {
+  bottom: 2%;
+  position: absolute;
+  width: 5%;
+  left: 0px;
+  height: 50%;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  background: #c0c0c0;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+.nav-bar-search-container-goback:focus {
+  outline: none;
+}
+
+.nav-bar-search-container-goback-image {
+  background-image: url(./images/leftArrow.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 12px;
+  height: 12px;
+  position: relative;
+  right: 0px;
+}
+.nav-bar-search-container-home-image {
+  background-image: url(./images/home.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 21px;
+  height: 21px;
+  position: relative;
+  right: 1px;
+}
+.nav-bar-search-container-home {
+  position: absolute;
+  bottom: 2%;
+  width: 7%;
+  height: 50%;
+  left: 24px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  background: #c0c0c0;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+.nav-bar-search-container-home:focus {
+  outline: none;
+}
+.nav-bar-search-searchbar {
+  bottom: 2%;
+  background: white;
+  position: absolute;
+  width: 84%;
+  left: 4vw;
+  height: 50%;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+}
+.nav-bar-search-searchbar:focus {
+  outline: none;
+}
+
+.nav-bar-search-container-go {
+  text-overflow: clip;
+  text-align: center;
+  bottom: 2%;
+  position: absolute;
+  width: 6%;
+  height: 50%;
+  right: 1px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  background: #c0c0c0;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+.nav-bar-search-container-go:focus {
+  outline: none;
+}
+.desktop-icon-opened-nav-bar-options {
+  height: 40%;
+  position: relative;
+  /* margin-top: 2px; */
+  top: 2vh;
+}
+
+.innerContentAviraTxt {
+  resize: none;
+  height: 100%;
+  width: 100%;
+}
+
+.desktop-icon-opened-AviraTxt {
+  display: none;
+  left: 30vw;
+  top: 15vh;
+  height: 37vh;
+  width: 34vw;
+  position: absolute;
+  animation-duration: 1.2s;
+  animation-name: bounceIn;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  background: #c0c0c0;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+
+.desktop-icon-opened-content-AviraTxt {
+  width: 99.1%;
+  height: 73%;
+  position: relative;
+  left: 3px;
+  top: 3vh;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  background: white;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+
+.desktop-icon-opened-Avira-Content-2 {
+  left: 30vw;
+  top: 15vh;
+  height: 60vh;
+  width: 34vw;
+  position: absolute;
+  animation-duration: 1.2s;
+  animation-name: bounceIn;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  background: #c0c0c0;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+  display: none;
+}
+
+.desktop-icon-opened-content-container-Avira-Content-2 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 45vh;
+  left: 1vw;
+  position: relative;
+  padding: 6px;
+}
+
+.inner-content-icon-logo1 {
+  background: white;
+  height: 44px;
+  width: 60px;
+  background-image: url(./images/aviraBottleImg.jpg);
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  left: 25px;
+  margin-top: 1vh;
+  order: 1;
+  background-repeat: no-repeat;
+}
+
+.inner-content-icon-logo1-title {
+  right: 14px;
+  position: relative;
+  top: 45px;
+  width: 73px;
+}
+
+.inner-content-icon-logo2 {
+  background: white;
+  height: 44px;
+  width: 60px;
+  background-image: url(./images/binoLogo.png);
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  left: 25px;
+  margin-top: 1vh;
+  order: 2;
+  background-repeat: no-repeat;
+}
+
+.inner-content-icon-logo2-title {
+  right: 14px;
+  position: relative;
+  top: 45px;
+  width: 73px;
+}
+
+.inner-content-icon-logo3-title {
+  right: 14px;
+  position: relative;
+  top: 45px;
+  width: 73px;
+}
+
+.inner-content-icon-logo3 {
+  background: white;
+  height: 44px;
+  width: 60px;
+  background-image: url(./images/aviraLogoFullSize-32x32.png);
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  left: 25px;
+  margin-top: 1vh;
+  background-repeat: no-repeat;
+}
+
+.inner-content-icon-logo4-title {
+  right: 14px;
+  position: relative;
+  top: 45px;
+  width: 73px;
+}
+
+.inner-content-icon-logo4 {
+  background: white;
+  height: 44px;
+  width: 60px;
+  background-image: url(./images/perrierLogo.png);
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  left: 25px;
+  margin-top: 1vh;
+  background-repeat: no-repeat;
+}
+
+.inner-content-icon-logo5-title {
+  right: 14px;
+  position: relative;
+  top: 45px;
+  width: 73px;
+}
+
+.inner-content-icon-logo5 {
+  background: white;
+  height: 44px;
+  width: 60px;
+  background-image: url(./images/pickUpLogo.jpg);
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  left: 25px;
+  margin-top: 1vh;
+  background-repeat: no-repeat;
+}
+
+.inner-content-icon-logo6-title {
+  right: 14px;
+  position: relative;
+  top: 45px;
+  width: 73px;
+}
+
+.inner-content-icon-logo6 {
+  background: white;
+  height: 44px;
+  width: 60px;
+  background-image: url(./images/pizzaLogo.jpg);
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  left: 25px;
+  margin-top: 1vh;
+  background-repeat: no-repeat;
+}
+
+.inner-content-icon-logo7-title {
+  right: 14px;
+  position: relative;
+  top: 45px;
+  width: 73px;
+}
+
+.inner-content-icon-logo7 {
+  background: white;
+  height: 44px;
+  width: 60px;
+  background-image: url(./images/susuandsonsLogo.jpg);
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  left: 25px;
+  margin-top: 1vh;
+  background-repeat: no-repeat;
+}
+
+.inner-content-icon-logo8-title {
+  right: 14px;
+  position: relative;
+  top: 45px;
+  width: 73px;
+}
+
+.inner-content-icon-logo8 {
+  background: white;
+  height: 44px;
+  width: 60px;
+  background-image: url(./images/susuFreshLogo.jpg);
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  left: 25px;
+  margin-top: 1vh;
+  background-repeat: no-repeat;
+}
+
+.inner-content-icon-logo9-title {
+  right: 14px;
+  position: relative;
+  top: 45px;
+  width: 73px;
+}
+
+.inner-content-icon-logo9 {
+  background: white;
+  height: 44px;
+  width: 60px;
+  background-image: url(./images/cafeteriaLogo.png);
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  left: 25px;
+  margin-top: 1vh;
+  background-repeat: no-repeat;
+}
+.inner-content-icon-logo10-title {
+  right: 14px;
+  position: relative;
+  top: 45px;
+  width: 73px;
+}
+
+.inner-content-icon-logo10 {
+  background: white;
+  height: 44px;
+  width: 60px;
+  background-image: url(./images/aviraBottleImg.jpg);
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  left: 25px;
+  margin-top: 1vh;
+  background-repeat: no-repeat;
+}
+.inner-content-icon-logo11-title {
+  right: 14px;
+  position: relative;
+  top: 45px;
+  width: 73px;
+}
+
+.inner-content-icon-logo11 {
+  background: white;
+  height: 44px;
+  width: 60px;
+  background-image: url(./images/AviraGettLogo.jpg);
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  left: 25px;
+  margin-top: 1vh;
+  background-repeat: no-repeat;
+}
+.inner-content-icon-logo12-title {
+  right: 14px;
+  position: relative;
+  top: 45px;
+  width: 73px;
+}
+
+.inner-content-icon-logo12 {
+  background: white;
+  height: 44px;
+  width: 60px;
+  background-image: url(./images/heiniLogo.png);
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  left: 25px;
+  margin-top: 1vh;
+  background-repeat: no-repeat;
+}
+.inner-content-icon-logo13-title {
+  right: 14px;
+  position: relative;
+  top: 45px;
+  width: 73px;
+}
+
+.inner-content-icon-logo13 {
+  background: white;
+  height: 44px;
+  width: 60px;
+  background-image: url(./images/loveyouLogo.jpg);
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  left: 25px;
+  margin-top: 1vh;
+  background-repeat: no-repeat;
+}
+.inner-content-icon-logo14-title {
+  right: 14px;
+  position: relative;
+  top: 45px;
+  width: 73px;
+}
+
+.inner-content-icon-logo14 {
+  background: white;
+  height: 44px;
+  width: 60px;
+  background-image: url(./images/optomatrist.jpg);
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  left: 25px;
+  margin-top: 1vh;
+  background-repeat: no-repeat;
+}
+.inner-content-icon-logo15-title {
+  right: 14px;
+  position: relative;
+  top: 45px;
+  width: 73px;
+}
+
+.inner-content-icon-logo15 {
+  background: white;
+  height: 44px;
+  width: 60px;
+  background-image: url(./images/yogoLogo.jpg);
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  left: 25px;
+  margin-top: 1vh;
+  background-repeat: no-repeat;
+}
+.inner-content-icon-logo16-title {
+  right: 14px;
+  position: relative;
+  top: 45px;
+  width: 73px;
+}
+
+.inner-content-icon-logo16 {
+  background: white;
+  height: 44px;
+  width: 60px;
+  background-image: url(./images/tajMahalLogo.jpg);
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  left: 25px;
+  margin-top: 1vh;
+  background-repeat: no-repeat;
+}
+/* */
+
+.inner-content-icon-program1 {
+  background: white;
+  height: 32px;
+  width: 32px;
+  background-image: url(./images/aviraLogoFullSize-32x32.png);
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  position: relative;
+  left: 25px;
+  margin-top: 1vh;
+}
+.inner-content-icon-program2 {
+  background: white;
+  height: 32px;
+  width: 32px;
+  background-image: url(./images/notepad-file-32x32.png);
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  position: relative;
+  left: 25px;
+  margin-top: 7vh;
+}
+.inner-content-icon-program3 {
+  background: white;
+  height: 26px;
+  width: 26px;
+  background-image: url(./images/explorer-32x32.png);
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  margin-top: 7vh;
+  position: relative;
+  left: -8px;
+  justify-content: space-around;
+}
+.inner-content-icon-program1-title {
+  right: 6px;
+  position: relative;
+  top: 35px;
+  width: 73px;
+}
+.inner-content-icon-program2-title {
+  right: 26px;
+  position: relative;
+  top: 35px;
+  width: 73px;
+}
+.inner-content-icon-program3-title {
+  right: 10px;
+  position: relative;
+  top: 22px;
+  width: 73px;
+  font-size: 10px;
+}
+
+.hide-inner-folder-content {
+  display: none;
+}
+
+.test-read-me {
+  width: 400px;
+  height: 500px;
+  background: white;
+  position: relative;
+  left: 20vw;
+  top: 10vh;
+}
+
+.AviraTxt-ReadMe-Wrapper {
+  position: absolute;
+  left: 319.266px;
+  top: 82px;
+  width: 401px;
+  display: block;
+  background: #c0c0c0;
+  border-top: 1px solid #dfdfdf;
+  border-left: 1px solid #dfdfdf;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+
+.window,
+.window-titlebar,
+.window-title {
+  cursor: default;
+  user-select: none;
+  -o-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+.window-titlebar .icon {
+  vertical-align: bottom;
+}
+.window-content {
+  margin: 0;
+  padding: 0;
+}
+
+.window-titlebar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.window-title-area {
+  position: relative;
+  flex: 1;
+  height: 16px; /* 100% doesn't work */
+}
+.window-title {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: inline-block !important;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background: #fbbebb;
+}
+.window-close-button {
+  display: block !important;
+  float: right;
+  width: 13px;
+  height: 11px;
+}
+.window-close-button:before {
+  content: "×";
+  position: relative;
+}
+
+.window-content .button-group {
+  width: 85px;
+}
+.window-content .button-group > button {
+  width: 95%;
+  padding: 3px 5px;
+}
+
+.window {
+  animation-duration: 1.2s;
+  animation-name: bounceIn;
+}
+
+.window:not(.draggable) {
+  background: #c0c0c0;
+  border-top: 1px solid #dfdfdf;
+  border-left: 1px solid #dfdfdf;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+  padding: 2px;
+}
+.window:not(.draggable):after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #7b7b7b;
+  border-bottom: 1px solid #7b7b7b;
+}
+.window:not(.draggable):after > * {
+  margin: 1px;
+}
+.window-titlebar {
+  background: #fbbebb; /* fallback to standard color */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000080', endColorstr='#1084d0', GradientType=1 ); /* IE6-9 */
+  /* TODO: gradient shouldn't actually extend to the window controls */
+
+  color: white;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 12px;
+  height: 26px;
+}
+.window-title {
+  padding-left: 2px;
+}
+.window-button {
+  margin: 2px;
+}
+.window-content {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+.tasks {
+  display: none;
+  flex: 1;
+  height: 100%;
+  background: #fbbebb;
+}
+
+.task {
+  max-width: 200px;
+  width: 50%;
+  text-align: left;
+  line-height: 14px;
+  padding: 2px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #fbbebb;
+  margin: 2px;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+
+.taskAviraLogo {
+  max-width: 200px;
+  width: 50%;
+  text-align: left;
+  line-height: 14px;
+  padding: 2px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #fbbebb;
+  margin: 2px;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+
+.taskAviraURL {
+  max-width: 200px;
+  width: 50%;
+  text-align: left;
+  line-height: 14px;
+  padding: 2px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #fbbebb;
+  margin: 2px;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+.taskAviraTxt {
+  max-width: 200px;
+  width: 50%;
+  text-align: left;
+  line-height: 14px;
+  padding: 2px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #fbbebb;
+  margin: 2px;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+
+.taskAviraContent {
+  max-width: 200px;
+  width: 50%;
+  text-align: left;
+  line-height: 14px;
+  padding: 2px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #fbbebb;
+  margin: 2px;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+
+.taskAviraContent2 {
+  max-width: 200px;
+  width: 50%;
+  text-align: left;
+  line-height: 14px;
+  padding: 2px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #fbbebb;
+  margin: 2px;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+.task img {
+  padding-right: 4px;
+  flex: 0 0 auto;
+}
+
+.iframeXButton {
+  position: absolute;
+  right: 0;
+  width: 17px;
+  font-size: 9px;
+  background-image: url("./images/x-button.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 17px;
+  margin: 3px;
+}
+
+.iframeTest {
+  position: relative;
+}
+
+.iframeContainerURL {
+  position: relative;
+  width: 400px;
+  display: none;
+  left: 200px;
+}
+.iframeContainerLogo {
+  position: relative;
+  width: 303px;
+  display: none;
+  left: 200px;
+}
+
+.menu-container-file {
+  display: none;
+}
+
+/* .selected {
+  z-index: 10000123 !important;
+} */
+
+.selectedWindow {
+  border: 2px solid #fbbebb;
+  z-index: 1000000000000394 !important;
+}
+
+.menu-popup-file {
+}
+
+.menu-popup-table {
+}
+
+.menu-row .menu-item {
+}
+
+.menu-item-label {
+}
+
+.menu-hotkey {
+}
+
+.menu-item-shortcut {
+}
+
+@-webkit-keyframes bounceIn {
+  from,
+  20%,
+  40%,
+  60%,
+  80%,
+  to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  20% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1);
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9);
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: scale3d(1.03, 1.03, 1.03);
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    -webkit-transform: scale3d(0.97, 0.97, 0.97);
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes bounceIn {
+  from,
+  20%,
+  40%,
+  60%,
+  80%,
+  to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  20% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1);
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9);
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: scale3d(1.03, 1.03, 1.03);
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    -webkit-transform: scale3d(0.97, 0.97, 0.97);
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.bounceIn {
+  -webkit-animation-duration: 0.75s;
+  animation-duration: 0.75s;
+  -webkit-animation-name: bounceIn;
+  animation-name: bounceIn;
+}
+
+@media only screen and (max-width: 376px) {
+  .body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    max-width: 99vw;
+    background-color: #fff;
+    max-height: 99vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+
+  .desktop-container {
+    height: 678px;
+    max-height: 99vh;
+    width: 381px !important;
+    background-image: url(./images/clouds.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .start-button {
+    width: 27vw;
+  }
+
+  .tray {
+    display: flex;
+    background: #fbbebb;
+    height: 100%;
+    width: 29%;
+    flex-direction: row;
+    position: absolute;
+    right: 0;
+    box-shadow: 1px 1px 0 #707070 inset, -1px -1px 0 white inset;
+  }
+
+  .big-avira-desktop-logo {
+    position: absolute;
+    z-index: 222;
+    bottom: 9vh;
+    width: 31vw;
+    height: 17vh;
+    background-image: url(./images/aviraLogoFullSize-32x32.png);
+    background-size: cover;
+    right: 2vw;
+  }
+
+  .taskbar {
+    position: absolute;
+    z-index: 2;
+    bottom: -11px;
+    left: 0;
+    right: 0;
+    height: 27px;
+    display: flex;
+    flex: 1;
+    border: 1px solid black;
+    background: #fbbebb;
+    width: 381px;
+    overflow-x: hidden;
+  }
+
+  .taskbar-time {
+    display: flex;
+    order: 3;
+    position: absolute;
+    right: -17px;
+    bottom: 2px;
+    width: 80px;
+  }
+
+  .desktop-icon-shortcut-Avira-ReadMe {
+    height: 46px;
+    width: 46px;
+    display: block;
+    background-image: url(./images/notepad-file-32x32.png);
+    background-size: contain;
+    left: 10px;
+    top: 3vh;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .desktop-icon-title-Avira-ReadMe {
+    font-family: "MS Sans Serif", "Segoe UI", sans-serif;
+    color: white;
+    position: relative;
+    line-height: 13px;
+    font-size: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    top: 48px;
+    left: 4px;
+    width: 80px;
+  }
+
+  .desktop-icon-shortcut-Avira-Content2 {
+    height: 46px;
+    width: 46px;
+    display: block;
+    background-image: url(./images/aviraLogoFullSize-32x32.png);
+    background-size: contain;
+    left: 20px;
+    top: 3vh;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .desktop-icon-title-Avira-Content2 {
+    font-family: sans-serif;
+    font-family: "MS Sans Serif", "Segoe UI", sans-serif;
+    color: white;
+    position: relative;
+    line-height: 13px;
+    font-size: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    top: 48px;
+    left: -8px;
+    width: 80px;
+  }
+
+  .desktop-icon-shortcut-Avira-Content {
+    height: 46px;
+    width: 46px;
+    display: block;
+    background-image: url(./images/aviraLogoFullSize-32x32.png);
+    background-size: contain;
+    left: 10px;
+    top: 3vh;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .desktop-icon-title-Avira-Content {
+    font-family: sans-serif;
+    font-family: "MS Sans Serif", "Segoe UI", sans-serif;
+    color: white;
+    position: relative;
+    line-height: 13px;
+    font-size: 11px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    top: 47px;
+    left: -9px;
+    width: 80px;
+  }
+
+  .start-menu {
+    position: absolute;
+    left: 0px;
+    bottom: 2vh;
+    width: 171px;
+    padding-left: 21px;
+    height: 263px;
+    max-height: 100vh;
+    box-sizing: border-box;
+    flex-direction: column;
+    background: #fbbebb;
+    border: 1px solid black;
+    padding-top: 15px;
+    color: white;
+  }
+
+  .start-menu-shown {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  .start-menu-our-address {
+    display: flex;
+    order: 1;
+    width: 107px;
+    height: 7vh;
+  }
+
+  .start-menu-our-address-image {
+    background-image: url(./images/folder.png);
+    height: 26px;
+    width: 27px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .start-menu-our-address-text {
+    position: relative;
+    height: 3px;
+    top: 5px;
+    left: 9px;
+    font-size: 10px;
+  }
+
+  .start-menu-our-address-arrow {
+    width: 23px;
+    position: relative;
+    top: 2px;
+    left: 42px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 20px;
+  }
+
+  .start-menu-contact-us {
+    display: flex;
+    order: 2;
+    width: 106px;
+    height: 8vh;
+  }
+
+  .start-menu-contact-us-image {
+    background-image: url(./images/folder.png);
+    height: 26px;
+    width: 32px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .start-menu-contact-us-text {
+    position: relative;
+    height: 0px;
+    top: 5px;
+    left: 4px;
+    font-size: 10px;
+  }
+
+  .start-menu-contact-us-arrow {
+    width: 23px;
+    position: relative;
+    top: 5px;
+    left: 42px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 20px;
+  }
+
+  .start-menu-about-us {
+    display: flex;
+    order: 3;
+    width: 107px;
+  }
+
+  .start-menu-about-us-image {
+    background-image: url(./images/folder.png);
+    height: 26px;
+    width: 27px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .start-menu-about-us-text {
+    position: relative;
+    height: 32px;
+    top: 5px;
+    left: 10px;
+    font-size: 10px;
+  }
+
+  .start-menu-about-us-arrow {
+    width: 23px;
+    position: relative;
+    top: 5px;
+    left: 56px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 20px;
+  }
+
+  .start-menu-about-us-shown {
+    height: 21vh;
+    width: 165px;
+    position: absolute;
+    bottom: 20.4vh;
+    left: 170px;
+    background: #fbbebb;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 12px;
+    align-items: center;
+  }
+  .start-menu-contact-us-shown {
+    height: 21vh;
+    width: 165px;
+    position: absolute;
+    bottom: 20.4vh;
+    left: 170px;
+    background: #fbbebb;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 12px;
+    align-items: center;
+  }
+
+  .start-menu-our-address-shown {
+    height: 21vh;
+    width: 165px;
+    position: absolute;
+    bottom: 20.4vh;
+    left: 170px;
+    background: #fbbebb;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 12px;
+    align-items: center;
+  }
+
+  .desktop-icon-opened-Avira-Content {
+    left: 30vw;
+    top: 19vh;
+    height: 52vh;
+    width: 85vw;
+    position: absolute;
+    animation-duration: 1.2s;
+    animation-name: bounceIn;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: #c0c0c0;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+  }
+
+  .desktop-icon-opened-top-bar {
+    position: relative;
+    background: #fbbebb;
+    height: 3vh;
+    width: 100%;
+  }
+
+  .top-bar-nav-options-x {
+    position: absolute;
+    right: 0;
+    width: 17px;
+    font-size: 9px;
+    background-image: url(./images/x-button.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 17px;
+    margin: 1px;
+  }
+
+  .top-bar-nav-options-min {
+    position: absolute;
+    right: 33px;
+    width: 17px;
+    font-size: 9px;
+    background-image: url(./images/minimize-button.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 17px;
+    margin: 1px;
+  }
+
+  .top-bar-nav-options-max {
+    position: absolute;
+    right: 17px;
+    width: 17px;
+    font-size: 9px;
+    background-image: url(./images/max-screen.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 17px;
+    margin: 1px;
+    /* display: flex; */
+  }
+
+  .desktop-icon-opened-nav-bar {
+    position: absolute;
+    height: 8vh;
+    width: 96%;
+    top: 19px;
+    background: #c0c0c0;
+  }
+
+  .desktop-icon-opened-nav-bar-options {
+    height: 40%;
+    position: relative;
+    /* margin-top: 2px; */
+    top: 3vh;
+    z-index: 33333;
+  }
+
+  .nav-bar-search-container-goback {
+    bottom: 2%;
+    position: absolute;
+    width: 7vw;
+    left: 0px;
+    /* z-index: 10000000; */
+    height: 35%;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: #c0c0c0;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+  }
+
+  .nav-bar-search-container-goback-image {
+    background-image: url(./images/leftArrow.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 12px;
+    height: 12px;
+    position: relative;
+    right: 0px;
+  }
+
+  .nav-bar-search-container-home {
+    position: absolute;
+    bottom: 2%;
+    width: 11%;
+    z-index: 1000000;
+    height: 35%;
+    left: 24px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: #c0c0c0;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+  }
+
+  .nav-bar-search-container-home-image {
+    background-image: url(./images/home.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 16px;
+    height: 14px;
+    position: relative;
+    right: 2px;
+    align-items: center;
+    bottom: 1px;
+  }
+
+  .nav-bar-search-searchbar {
+    bottom: 3%;
+    background: white;
+    position: absolute;
+    width: 70%;
+    z-index: 1;
+    left: 14vw;
+    height: 34%;
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+  }
+
+  .nav-bar-search-container-go {
+    text-overflow: clip;
+    text-align: center;
+    bottom: 2%;
+    position: absolute;
+    width: 12%;
+    z-index: 1000;
+    height: 35%;
+    right: -8px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: #c0c0c0;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+  }
+
+  .desktop-icon-opened-content {
+    width: 65.5vw;
+    height: 70%;
+    position: relative;
+    left: 2px;
+    top: 8vh;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: white;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    /* border-right: 1px solid #000; */
+    border-bottom: 1px solid #000;
+  }
+
+  .inner-content-icon-program1 {
+    background: white;
+    height: 26px;
+    width: 26px;
+    background-image: url(./images/aviraLogoFullSize-32x32.png);
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    position: relative;
+    left: -8px;
+    margin-top: 1vh;
+    font-size: 10px;
+  }
+
+  .inner-content-icon-program1-title {
+    right: 12px;
+    position: relative;
+    top: 28px;
+    width: 73px;
+  }
+
+  .inner-content-icon-program2 {
+    background: white;
+    height: 26px;
+    width: 26px;
+    background-image: url(./images/notepad-file-32x32.png);
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    position: relative;
+    left: -7px;
+    margin-top: 3vh;
+    font-size: 10px;
+  }
+
+  .inner-content-icon-program2-title {
+    right: 22px;
+    position: relative;
+    top: 29px;
+    width: 73px;
+  }
+
+  .desktop-icon-opened-AviraTxt {
+    /* display: none; */
+    left: 19vw;
+    top: 18vh;
+    height: 41vh;
+    width: 81vw;
+    position: absolute;
+    animation-duration: 1.2s;
+    animation-name: bounceIn;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: #c0c0c0;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+  }
+
+  .desktop-icon-opened-top-bar {
+    position: relative;
+    background: #fbbebb;
+    height: 3vh;
+    width: 100%;
+    /* z-index: 3000; */
+    /* display: flex; */
+  }
+
+  .desktop-icon-opened-nav-bar {
+    position: absolute;
+    height: 0vh;
+    width: 96%;
+    top: 21px;
+    background: #c0c0c0;
+  }
+
+  .desktop-icon-opened-content-AviraTxt {
+    width: 98.1%;
+    height: 81%;
+    position: relative;
+    left: 3px;
+    top: 4vh;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: white;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    /* border-right: 1px solid #000; */
+    border-bottom: 1px solid #000;
+  }
+
+  .desktop-icon-opened-Avira-Content-2 {
+    left: 16vw;
+    top: 4vh;
+    height: 70vh;
+    width: 85vw;
+    position: absolute;
+    animation-duration: 1.2s;
+    animation-name: bounceIn;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: #c0c0c0;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+    /* display: none; */
+  }
+
+  .desktop-icon-opened-nav-bar-search-container {
+    display: flex;
+    position: relative;
+    top: -7px;
+    height: 9vh;
+  }
+
+  .desktop-icon-opened-footer {
+    width: 85vw;
+    left: -4px;
+    height: 8%;
+    position: relative;
+    top: 58px;
+    margin: 3px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: #c0c0c0;
+    border-top: 1px solid gray;
+    border-left: 1px solid gray;
+    /* border-right: 1px solid #dfdfdf; */
+    border-bottom: 1px solid #dfdfdf;
+    box-shadow: 1px 0 #fff, 0 1px #fff, 1px 1px #fff;
+  }
+
+  .File {
+    border-color: transparent;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: #c0c0c0;
+    position: relative;
+    bottom: 18px;
+  }
+
+  .Edit {
+    border-color: transparent;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: #c0c0c0;
+    position: relative;
+    bottom: 18px;
+  }
+
+  .View {
+    border-color: transparent;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: #c0c0c0;
+    position: relative;
+    bottom: 18px;
+  }
+  .desktop-icon-opened-content {
+    width: 83.5vw;
+    height: 74%;
+    position: relative;
+    left: 2px;
+    top: 9vh;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: white;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    /* border-right: 1px solid #000; */
+    border-bottom: 1px solid #000;
+  }
+
+  .inner-content-icon-logo1 {
+    background: white;
+    height: 36px;
+    width: 36px;
+    background-size: contain;
+    background-image: url(./images/aviraBottleImg.jpg);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    left: 25px;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+  }
+  .inner-content-icon-logo1-title {
+    width: 73px;
+    display: flex;
+    position: absolute;
+    right: -1%;
+    top: 70%;
+  }
+  .inner-content-icon-logo2 {
+    background: white;
+    height: 36px;
+    width: 36px;
+    background-size: contain;
+    background-image: url(./images/binoLogo.png);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    left: 25px;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+  }
+  .inner-content-icon-logo2-title {
+    width: 73px;
+    display: flex;
+    position: absolute;
+    right: -1%;
+    top: 92%;
+  }
+  .inner-content-icon-logo3 {
+    background: white;
+    height: 36px;
+    width: 36px;
+    background-size: contain;
+    background-image: url(./images/aviraLogoFullSize-32x32.png);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    left: 25px;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+  }
+  .inner-content-icon-logo3-title {
+    width: 73px;
+    display: flex;
+    position: absolute;
+    right: 73%;
+    top: 19%;
+  }
+  .inner-content-icon-logo4 {
+    background: white;
+    height: 36px;
+    width: 36px;
+    background-size: contain;
+    background-image: url(./images/perrierLogo.png);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    left: 25px;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+  }
+  .inner-content-icon-logo4-title {
+    width: 73px;
+    display: flex;
+    position: absolute;
+    right: 73%;
+    top: 44%;
+  }
+
+  .inner-content-icon-logo5 {
+    background: white;
+    height: 36px;
+    width: 36px;
+    background-size: contain;
+    background-image: url(./images/pickUpLogo.jpg);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    left: 25px;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+  }
+  .inner-content-icon-logo5-title {
+    width: 73px;
+    display: flex;
+    position: absolute;
+    right: 73%;
+    top: 70%;
+  }
+
+  .inner-content-icon-logo6 {
+    background: white;
+    height: 36px;
+    width: 36px;
+    background-size: contain;
+    background-image: url(./images/pizzaLogo.jpg);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    left: 25px;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+  }
+  .inner-content-icon-logo6-title {
+    width: 73px;
+    display: flex;
+    position: absolute;
+    right: 73%;
+    top: 93%;
+  }
+
+  .inner-content-icon-logo7 {
+    background: white;
+    height: 36px;
+    width: 36px;
+    background-size: contain;
+    background-image: url(./images/susuandsonsLogo.jpg);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    left: 25px;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+  }
+  .inner-content-icon-logo7-title {
+    width: 73px;
+    display: flex;
+    position: absolute;
+    right: 48%;
+    top: 19%;
+  }
+
+  .inner-content-icon-logo8 {
+    background: white;
+    height: 36px;
+    width: 36px;
+    background-size: contain;
+    background-image: url(./images/susuFreshLogo.jpg);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    left: 25px;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+  }
+  .inner-content-icon-logo8-title {
+    width: 73px;
+    display: flex;
+    position: absolute;
+    right: 48%;
+    top: 44%;
+  }
+
+  .inner-content-icon-logo9 {
+    background: white;
+    height: 36px;
+    width: 36px;
+    background-size: contain;
+    background-image: url(./images/cafeteriaLogo.png);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    left: 25px;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+  }
+  .inner-content-icon-logo9-title {
+    width: 73px;
+    display: flex;
+    position: absolute;
+    right: 48%;
+    top: 70%;
+  }
+
+  .inner-content-icon-logo10 {
+    background: white;
+    height: 36px;
+    width: 36px;
+    background-size: contain;
+    background-image: url(./images/aviraBottleImg.jpg);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    left: 25px;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+  }
+  .inner-content-icon-logo10-title {
+    width: 73px;
+    display: flex;
+    position: absolute;
+    right: 48%;
+    top: 93%;
+  }
+
+  .inner-content-icon-logo11 {
+    background: white;
+    height: 36px;
+    width: 36px;
+    background-size: contain;
+    background-image: url(./images/AviraGettLogo.jpg);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    left: 25px;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+  }
+  .inner-content-icon-logo11-title {
+    width: 73px;
+    display: flex;
+    position: absolute;
+    right: 23%;
+    top: 19%;
+  }
+  .inner-content-icon-logo12 {
+    background: white;
+    height: 36px;
+    width: 36px;
+    background-size: contain;
+    background-image: url(./images/heiniLogo.png);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    left: 25px;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+  }
+  .inner-content-icon-logo12-title {
+    width: 73px;
+    display: flex;
+    position: absolute;
+    right: 23%;
+    top: 44%;
+  }
+
+  .inner-content-icon-logo13 {
+    background: white;
+    height: 36px;
+    width: 36px;
+    background-size: contain;
+    background-image: url(./images/loveyouLogo.jpg);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    left: 25px;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+  }
+  .inner-content-icon-logo13-title {
+    width: 73px;
+    display: flex;
+    position: absolute;
+    right: 23%;
+    top: 70%;
+  }
+
+  .inner-content-icon-logo14 {
+    background: white;
+    height: 36px;
+    width: 36px;
+    background-size: contain;
+    background-image: url(./images/optomatrist.jpg);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    left: 25px;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+  }
+  .inner-content-icon-logo14-title {
+    width: 73px;
+    display: flex;
+    position: absolute;
+    right: 23%;
+    top: 93%;
+  }
+
+  .inner-content-icon-logo15 {
+    background: white;
+    height: 36px;
+    width: 36px;
+    background-size: contain;
+    background-image: url(./images/yogoLogo.jpg);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    left: 25px;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+  }
+  .inner-content-icon-logo15-title {
+    width: 73px;
+    display: flex;
+    position: absolute;
+    right: -1%;
+    top: 19%;
+  }
+
+  .inner-content-icon-logo16 {
+    background: white;
+    height: 36px;
+    width: 36px;
+    background-size: contain;
+    background-image: url(./images/tajMahalLogo.jpg);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    left: 25px;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+  }
+  .inner-content-icon-logo16-title {
+    width: 73px;
+    display: flex;
+    position: absolute;
+    right: -1%;
+    top: 44%;
+  }
+
+  .desktop-icon-opened-content-container-Avira-Content-2 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 44vh;
+    left: 1vw;
+    position: relative;
+    padding: 0px;
+    font-size: 9px;
+  }
+
+  .desktop-icon-opened-top-bar-iframeLogo {
+    position: relative;
+    background: #fbbebb;
+    height: 3vh;
+    width: 299px;
+    z-index: 3000;
+  }
+
+  .iframeLogo {
+  }
+
+  .desktop-icon-opened-top-bar-iframeURL {
+    position: relative;
+    background: #fbbebb;
+    height: 3vh;
+    width: 400px;
+    z-index: 3000;
+  }
+
+  .inner-content-icon-program3 {
+    background: white;
+    height: 26px;
+    width: 26px;
+    background-image: url(./images/explorer-32x32.png);
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    /* margin-top: 7vh; */
+    position: relative;
+    left: -8px;
+    justify-content: space-around;
+  }
+
+  .iframeContainerLogo {
+    position: relative;
+    width: 40px;
+    display: none;
+    left: 200px;
+  }
+}
+
+@media only screen and (max-width: 361px) and (min-width: 359px) {
+  .body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    max-width: 99vw;
+    background-color: #fff;
+    max-height: 99vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+
+  .desktop-container {
+    height: 678px;
+    max-height: 99vh;
+    width: 381px !important;
+    background-image: url(./images/clouds.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .start-button {
+    width: 27vw;
+  }
+
+  .tray {
+    display: flex;
+    background: #fbbebb;
+    height: 100%;
+    width: 29%;
+    flex-direction: row;
+    position: absolute;
+    right: 0;
+    box-shadow: 1px 1px 0 #707070 inset, -1px -1px 0 white inset;
+  }
+
+  .big-avira-desktop-logo {
+    position: absolute;
+    z-index: 222;
+    bottom: 9vh;
+    width: 31vw;
+    height: 17vh;
+    background-image: url(./images/aviraLogoFullSize-32x32.png);
+    background-size: cover;
+    right: 2vw;
+  }
+
+  .taskbar {
+    position: absolute;
+    z-index: 2;
+    bottom: -11px;
+    left: 0;
+    right: 0;
+    height: 27px;
+    display: flex;
+    flex: 1;
+    border: 1px solid black;
+    background: #fbbebb;
+    width: 381px;
+    overflow-x: hidden;
+  }
+
+  .taskbar-time {
+    display: flex;
+    order: 3;
+    position: absolute;
+    right: -17px;
+    bottom: 2px;
+    width: 80px;
+  }
+
+  .desktop-icon-shortcut-Avira-ReadMe {
+    height: 46px;
+    width: 46px;
+    display: block;
+    background-image: url(./images/notepad-file-32x32.png);
+    background-size: contain;
+    left: 10px;
+    top: 3vh;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .desktop-icon-title-Avira-ReadMe {
+    font-family: "MS Sans Serif", "Segoe UI", sans-serif;
+    color: white;
+    position: relative;
+    line-height: 13px;
+    font-size: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    top: 48px;
+    left: 4px;
+    width: 80px;
+  }
+
+  .desktop-icon-shortcut-Avira-Content2 {
+    height: 46px;
+    width: 46px;
+    display: block;
+    background-image: url(./images/aviraLogoFullSize-32x32.png);
+    background-size: contain;
+    left: 20px;
+    top: 3vh;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .desktop-icon-title-Avira-Content2 {
+    font-family: sans-serif;
+    font-family: "MS Sans Serif", "Segoe UI", sans-serif;
+    color: white;
+    position: relative;
+    line-height: 13px;
+    font-size: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    top: 48px;
+    left: -8px;
+    width: 80px;
+  }
+
+  .desktop-icon-shortcut-Avira-Content {
+    height: 46px;
+    width: 46px;
+    display: block;
+    background-image: url(./images/aviraLogoFullSize-32x32.png);
+    background-size: contain;
+    left: 10px;
+    top: 3vh;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .desktop-icon-title-Avira-Content {
+    font-family: sans-serif;
+    font-family: "MS Sans Serif", "Segoe UI", sans-serif;
+    color: white;
+    position: relative;
+    line-height: 13px;
+    font-size: 11px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    top: 47px;
+    left: -9px;
+    width: 80px;
+  }
+
+  .start-menu {
+    position: absolute;
+    left: 0px;
+    bottom: 2vh;
+    width: 171px;
+    padding-left: 21px;
+    height: 263px;
+    max-height: 100vh;
+    box-sizing: border-box;
+    flex-direction: column;
+    background: #fbbebb;
+    border: 1px solid black;
+    padding-top: 15px;
+    color: white;
+  }
+
+  .start-menu-shown {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  .start-menu-our-address {
+    display: flex;
+    order: 1;
+    width: 107px;
+    height: 7vh;
+  }
+
+  .start-menu-our-address-image {
+    background-image: url(./images/folder.png);
+    height: 26px;
+    width: 27px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .start-menu-our-address-text {
+    position: relative;
+    height: 3px;
+    top: 5px;
+    left: 9px;
+    font-size: 10px;
+  }
+
+  .start-menu-our-address-arrow {
+    width: 23px;
+    position: relative;
+    top: 2px;
+    left: 42px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 20px;
+  }
+
+  .start-menu-contact-us {
+    display: flex;
+    order: 2;
+    width: 106px;
+    height: 8vh;
+  }
+
+  .start-menu-contact-us-image {
+    background-image: url(./images/folder.png);
+    height: 26px;
+    width: 32px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .start-menu-contact-us-text {
+    position: relative;
+    height: 0px;
+    top: 5px;
+    left: 4px;
+    font-size: 10px;
+  }
+
+  .start-menu-contact-us-arrow {
+    width: 23px;
+    position: relative;
+    top: 5px;
+    left: 42px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 20px;
+  }
+
+  .start-menu-about-us {
+    display: flex;
+    order: 3;
+    width: 107px;
+  }
+
+  .start-menu-about-us-image {
+    background-image: url(./images/folder.png);
+    height: 26px;
+    width: 27px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .start-menu-about-us-text {
+    position: relative;
+    height: 32px;
+    top: 5px;
+    left: 10px;
+    font-size: 10px;
+  }
+
+  .start-menu-about-us-arrow {
+    width: 23px;
+    position: relative;
+    top: 5px;
+    left: 56px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 20px;
+  }
+
+  .start-menu-about-us-shown {
+    height: 21vh;
+    width: 165px;
+    position: absolute;
+    bottom: 20.4vh;
+    left: 170px;
+    background: #fbbebb;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 12px;
+    align-items: center;
+  }
+  .start-menu-contact-us-shown {
+    height: 21vh;
+    width: 165px;
+    position: absolute;
+    bottom: 20.4vh;
+    left: 170px;
+    background: #fbbebb;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 12px;
+    align-items: center;
+  }
+
+  .start-menu-our-address-shown {
+    height: 21vh;
+    width: 165px;
+    position: absolute;
+    bottom: 20.4vh;
+    left: 170px;
+    background: #fbbebb;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 12px;
+    align-items: center;
+  }
+
+  .desktop-icon-opened-Avira-Content {
+    left: 30vw;
+    top: 19vh;
+    height: 52vh;
+    width: 85vw;
+    position: absolute;
+    animation-duration: 1.2s;
+    animation-name: bounceIn;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: #c0c0c0;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+  }
+
+  .desktop-icon-opened-top-bar {
+    position: relative;
+    background: #fbbebb;
+    height: 3vh;
+    width: 100%;
+  }
+
+  .top-bar-nav-options-x {
+    position: absolute;
+    right: 0;
+    width: 17px;
+    font-size: 9px;
+    background-image: url(./images/x-button.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 17px;
+    margin: 1px;
+  }
+
+  .top-bar-nav-options-min {
+    position: absolute;
+    right: 33px;
+    width: 17px;
+    font-size: 9px;
+    background-image: url(./images/minimize-button.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 17px;
+    margin: 1px;
+  }
+
+  .top-bar-nav-options-max {
+    position: absolute;
+    right: 17px;
+    width: 17px;
+    font-size: 9px;
+    background-image: url(./images/max-screen.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 17px;
+    margin: 1px;
+    /* display: flex; */
+  }
+
+  .desktop-icon-opened-nav-bar {
+    position: absolute;
+    height: 8vh;
+    width: 96%;
+    top: 19px;
+    background: #c0c0c0;
+  }
+
+  .desktop-icon-opened-nav-bar-options {
+    height: 40%;
+    position: relative;
+    /* margin-top: 2px; */
+    top: 3vh;
+    z-index: 33333;
+  }
+
+  .nav-bar-search-container-goback {
+    bottom: 2%;
+    position: absolute;
+    width: 7vw;
+    left: 0px;
+    /* z-index: 10000000; */
+    height: 35%;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: #c0c0c0;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+  }
+
+  .nav-bar-search-container-goback-image {
+    background-image: url(./images/leftArrow.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 12px;
+    height: 12px;
+    position: relative;
+    right: 0px;
+  }
+
+  .nav-bar-search-container-home {
+    position: absolute;
+    bottom: 2%;
+    width: 11%;
+    z-index: 1000000;
+    height: 35%;
+    left: 24px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: #c0c0c0;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+  }
+
+  .nav-bar-search-container-home-image {
+    background-image: url(./images/home.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 16px;
+    height: 14px;
+    position: relative;
+    right: 2px;
+    align-items: center;
+    bottom: 1px;
+  }
+
+  .nav-bar-search-searchbar {
+    bottom: 3%;
+    background: white;
+    position: absolute;
+    width: 70%;
+    z-index: 1;
+    left: 14vw;
+    height: 34%;
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+  }
+
+  .nav-bar-search-container-go {
+    text-overflow: clip;
+    text-align: center;
+    bottom: 2%;
+    position: absolute;
+    width: 12%;
+    z-index: 1000;
+    height: 35%;
+    right: -8px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: #c0c0c0;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+  }
+
+  .desktop-icon-opened-content {
+    width: 65.5vw;
+    height: 70%;
+    position: relative;
+    left: 2px;
+    top: 8vh;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: white;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    /* border-right: 1px solid #000; */
+    border-bottom: 1px solid #000;
+  }
+
+  .inner-content-icon-program1 {
+    background: white;
+    height: 26px;
+    width: 26px;
+    background-image: url(./images/aviraLogoFullSize-32x32.png);
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    position: relative;
+    left: -8px;
+    margin-top: 1vh;
+    font-size: 10px;
+  }
+
+  .inner-content-icon-program1-title {
+    right: 12px;
+    position: relative;
+    top: 28px;
+    width: 73px;
+  }
+
+  .inner-content-icon-program2 {
+    background: white;
+    height: 26px;
+    width: 26px;
+    background-image: url(./images/notepad-file-32x32.png);
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    position: relative;
+    left: -7px;
+    margin-top: 3vh;
+    font-size: 10px;
+  }
+
+  .inner-content-icon-program2-title {
+    right: 22px;
+    position: relative;
+    top: 29px;
+    width: 73px;
+  }
+
+  .desktop-icon-opened-AviraTxt {
+    /* display: none; */
+    left: 19vw;
+    top: 18vh;
+    height: 41vh;
+    width: 81vw;
+    position: absolute;
+    animation-duration: 1.2s;
+    animation-name: bounceIn;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: #c0c0c0;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+  }
+
+  .desktop-icon-opened-top-bar {
+    position: relative;
+    background: #fbbebb;
+    height: 3vh;
+    width: 100%;
+    /* z-index: 3000; */
+    /* display: flex; */
+  }
+
+  .desktop-icon-opened-nav-bar {
+    position: absolute;
+    height: 0vh;
+    width: 96%;
+    top: 21px;
+    background: #c0c0c0;
+  }
+
+  .desktop-icon-opened-content-AviraTxt {
+    width: 98.1%;
+    height: 81%;
+    position: relative;
+    left: 3px;
+    top: 4vh;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: white;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    /* border-right: 1px solid #000; */
+    border-bottom: 1px solid #000;
+  }
+
+  .desktop-icon-opened-Avira-Content-2 {
+    left: 16vw;
+    top: 4vh;
+    height: 70vh;
+    width: 85vw;
+    position: absolute;
+    animation-duration: 1.2s;
+    animation-name: bounceIn;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: #c0c0c0;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+    /* display: none; */
+  }
+
+  .desktop-icon-opened-nav-bar-search-container {
+    display: flex;
+    position: relative;
+    top: -7px;
+    height: 9vh;
+  }
+
+  .desktop-icon-opened-footer {
+    width: 85vw;
+    left: -4px;
+    height: 8%;
+    position: relative;
+    top: 58px;
+    margin: 3px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: #c0c0c0;
+    border-top: 1px solid gray;
+    border-left: 1px solid gray;
+    /* border-right: 1px solid #dfdfdf; */
+    border-bottom: 1px solid #dfdfdf;
+    box-shadow: 1px 0 #fff, 0 1px #fff, 1px 1px #fff;
+  }
+
+  .File {
+    border-color: transparent;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: #c0c0c0;
+    position: relative;
+    bottom: 18px;
+  }
+
+  .Edit {
+    border-color: transparent;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: #c0c0c0;
+    position: relative;
+    bottom: 18px;
+  }
+
+  .View {
+    border-color: transparent;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: #c0c0c0;
+    position: relative;
+    bottom: 18px;
+  }
+  .desktop-icon-opened-content {
+    width: 83.5vw;
+    height: 74%;
+    position: relative;
+    left: 2px;
+    top: 9vh;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: white;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    /* border-right: 1px solid #000; */
+    border-bottom: 1px solid #000;
+  }
+
+  .inner-content-icon-logo1 {
+    background: white;
+    height: 36px;
+    width: 36px;
+    background-size: contain;
+    background-image: url(./images/aviraBottleImg.jpg);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    left: 25px;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+  }
+  .inner-content-icon-logo1-title {
+    width: 73px;
+    display: flex;
+    position: absolute;
+    right: -1%;
+    top: 70%;
+  }
+  .inner-content-icon-logo2 {
+    background: white;
+    height: 36px;
+    width: 36px;
+    background-size: contain;
+    background-image: url(./images/binoLogo.png);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    left: 25px;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+  }
+  .inner-content-icon-logo2-title {
+    width: 73px;
+    display: flex;
+    position: absolute;
+    right: -1%;
+    top: 92%;
+  }
+  .inner-content-icon-logo3 {
+    background: white;
+    height: 36px;
+    width: 36px;
+    background-size: contain;
+    background-image: url(./images/aviraLogoFullSize-32x32.png);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    left: 25px;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+  }
+  .inner-content-icon-logo3-title {
+    width: 73px;
+    display: flex;
+    position: absolute;
+    right: 73%;
+    top: 19%;
+  }
+  .inner-content-icon-logo4 {
+    background: white;
+    height: 36px;
+    width: 36px;
+    background-size: contain;
+    background-image: url(./images/perrierLogo.png);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    left: 25px;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+  }
+  .inner-content-icon-logo4-title {
+    width: 73px;
+    display: flex;
+    position: absolute;
+    right: 73%;
+    top: 44%;
+  }
+
+  .inner-content-icon-logo5 {
+    background: white;
+    height: 36px;
+    width: 36px;
+    background-size: contain;
+    background-image: url(./images/pickUpLogo.jpg);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    left: 25px;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+  }
+  .inner-content-icon-logo5-title {
+    width: 73px;
+    display: flex;
+    position: absolute;
+    right: 73%;
+    top: 70%;
+  }
+
+  .inner-content-icon-logo6 {
+    background: white;
+    height: 36px;
+    width: 36px;
+    background-size: contain;
+    background-image: url(./images/pizzaLogo.jpg);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    left: 25px;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+  }
+  .inner-content-icon-logo6-title {
+    width: 73px;
+    display: flex;
+    position: absolute;
+    right: 73%;
+    top: 93%;
+  }
+
+  .inner-content-icon-logo7 {
+    background: white;
+    height: 36px;
+    width: 36px;
+    background-size: contain;
+    background-image: url(./images/susuandsonsLogo.jpg);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    left: 25px;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+  }
+  .inner-content-icon-logo7-title {
+    width: 73px;
+    display: flex;
+    position: absolute;
+    right: 48%;
+    top: 19%;
+  }
+
+  .inner-content-icon-logo8 {
+    background: white;
+    height: 36px;
+    width: 36px;
+    background-size: contain;
+    background-image: url(./images/susuFreshLogo.jpg);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    left: 25px;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+  }
+  .inner-content-icon-logo8-title {
+    width: 73px;
+    display: flex;
+    position: absolute;
+    right: 48%;
+    top: 44%;
+  }
+
+  .inner-content-icon-logo9 {
+    background: white;
+    height: 36px;
+    width: 36px;
+    background-size: contain;
+    background-image: url(./images/cafeteriaLogo.png);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    left: 25px;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+  }
+  .inner-content-icon-logo9-title {
+    width: 73px;
+    display: flex;
+    position: absolute;
+    right: 48%;
+    top: 70%;
+  }
+
+  .inner-content-icon-logo10 {
+    background: white;
+    height: 36px;
+    width: 36px;
+    background-size: contain;
+    background-image: url(./images/aviraBottleImg.jpg);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    left: 25px;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+  }
+  .inner-content-icon-logo10-title {
+    width: 73px;
+    display: flex;
+    position: absolute;
+    right: 48%;
+    top: 93%;
+  }
+
+  .inner-content-icon-logo11 {
+    background: white;
+    height: 36px;
+    width: 36px;
+    background-size: contain;
+    background-image: url(./images/AviraGettLogo.jpg);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    left: 25px;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+  }
+  .inner-content-icon-logo11-title {
+    width: 73px;
+    display: flex;
+    position: absolute;
+    right: 23%;
+    top: 19%;
+  }
+  .inner-content-icon-logo12 {
+    background: white;
+    height: 36px;
+    width: 36px;
+    background-size: contain;
+    background-image: url(./images/heiniLogo.png);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    left: 25px;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+  }
+  .inner-content-icon-logo12-title {
+    width: 73px;
+    display: flex;
+    position: absolute;
+    right: 23%;
+    top: 44%;
+  }
+
+  .inner-content-icon-logo13 {
+    background: white;
+    height: 36px;
+    width: 36px;
+    background-size: contain;
+    background-image: url(./images/loveyouLogo.jpg);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    left: 25px;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+  }
+  .inner-content-icon-logo13-title {
+    width: 73px;
+    display: flex;
+    position: absolute;
+    right: 23%;
+    top: 70%;
+  }
+
+  .inner-content-icon-logo14 {
+    background: white;
+    height: 36px;
+    width: 36px;
+    background-size: contain;
+    background-image: url(./images/optomatrist.jpg);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    left: 25px;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+  }
+  .inner-content-icon-logo14-title {
+    width: 73px;
+    display: flex;
+    position: absolute;
+    right: 23%;
+    top: 93%;
+  }
+
+  .inner-content-icon-logo15 {
+    background: white;
+    height: 36px;
+    width: 36px;
+    background-size: contain;
+    background-image: url(./images/yogoLogo.jpg);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    left: 25px;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+  }
+  .inner-content-icon-logo15-title {
+    width: 73px;
+    display: flex;
+    position: absolute;
+    right: -1%;
+    top: 19%;
+  }
+
+  .inner-content-icon-logo16 {
+    background: white;
+    height: 36px;
+    width: 36px;
+    background-size: contain;
+    background-image: url(./images/tajMahalLogo.jpg);
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    left: 25px;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+  }
+  .inner-content-icon-logo16-title {
+    width: 73px;
+    display: flex;
+    position: absolute;
+    right: -1%;
+    top: 44%;
+  }
+
+  .desktop-icon-opened-content-container-Avira-Content-2 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 44vh;
+    left: 1vw;
+    position: relative;
+    padding: 0px;
+    font-size: 9px;
+  }
+
+  .desktop-icon-opened-top-bar-iframeLogo {
+    position: relative;
+    background: #fbbebb;
+    height: 3vh;
+    width: 324px;
+    z-index: 3000;
+  }
+
+  .iframeLogo {
+    height: 325px !important;
+    width: 325px !important;
+    resize: both;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+
+  .desktop-icon-opened-top-bar-iframeURL {
+    position: relative;
+    background: #fbbebb;
+    height: 3vh;
+    width: 349px;
+    z-index: 3000;
+  }
+
+  .inner-content-icon-program3 {
+    background: white;
+    height: 26px;
+    width: 26px;
+    background-image: url(./images/explorer-32x32.png);
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    /* margin-top: 7vh; */
+    position: relative;
+    left: -8px;
+    justify-content: space-around;
+  }
+
+  .iframeContainerLogo {
+    position: relative;
+    width: 40px;
+    display: none;
+    left: 200px;
+  }
+
+  .iframeContainerURL {
+    left: 0px;
+    top: 164px;
+    width: 330px;
+    z-index: 223 !important;
+  }
+}
+
+@media only screen and (max-width: 319px) and (min-width: 320px) {
+  .desktop-container {
+    height: 678px;
+    max-height: 119vh;
+    width: 381px !important;
+    background-image: url(./images/clouds.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .taskbar {
+    position: absolute;
+    z-index: 2;
+    bottom: -18.2vh;
+    left: 0;
+    right: 0;
+    height: 27px;
+    display: flex;
+    flex: 1;
+    border: 1px solid black;
+    background: #fbbebb;
+    width: 381px;
+    overflow-x: hidden;
+  }
+
+  .tray {
+    display: flex;
+    background: #fbbebb;
+    height: 100%;
+    width: 29%;
+    flex-direction: row;
+    position: absolute;
+    right: 0;
+    box-shadow: 1px 1px 0 #707070 inset, -1px -1px 0 white inset;
+    bottom: -2px;
+  }
+
+  .big-avira-desktop-logo {
+    position: absolute;
+    z-index: 222;
+    bottom: -11vh;
+    width: 31vw;
+    height: 17vh;
+    background-image: url(./images/aviraLogoFullSize-32x32.png);
+    background-size: cover;
+    right: -14vw;
+  }
+
+  .start-menu {
+    position: absolute;
+    left: 0px;
+    bottom: -14vh;
+    width: 171px;
+    padding-left: 21px;
+    height: 263px;
+    max-height: 100vh;
+    box-sizing: border-box;
+    background: #fbbebb;
+    border: 1px solid black;
+    padding-top: 15px;
+    color: white;
+  }
+
+  .start-menu-contact-us-shown {
+    height: 21vh;
+    width: 165px;
+    position: absolute;
+    bottom: 11.4vh;
+    left: 170px;
+    background: #fbbebb;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 12px;
+    align-items: center;
+  }
+
+  .start-menu-about-us-shown {
+    height: 21vh;
+    width: 165px;
+    position: absolute;
+    bottom: 11.4vh;
+    left: 170px;
+    background: #fbbebb;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 12px;
+    align-items: center;
+  }
+
+  .start-menu-our-address-shown {
+    height: 21vh;
+    width: 165px;
+    position: absolute;
+    bottom: 11.4vh;
+    left: 170px;
+    background: #fbbebb;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 12px;
+    align-items: center;
+  }
+
+  .desktop-icon-opened-Avira-Content-2 {
+    height: 71vh;
+    width: 102vw;
+    position: absolute;
+    left: 33.1875px;
+    top: 100.719px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: #c0c0c0;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+    /* display: none; */
+  }
+
+  .desktop-icon-opened-content {
+    width: 100.5vw;
+    height: 74%;
+    position: relative;
+    left: 2px;
+    top: 9vh;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: white;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    /* border-right: 1px solid #000; */
+    border-bottom: 1px solid #000;
+  }
+
+  .desktop-icon-opened-footer {
+    width: 99vw;
+    left: 1px;
+    height: 8%;
+    position: relative;
+    top: 50px;
+    margin: 3px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: #c0c0c0;
+    border-top: 1px solid gray;
+    border-left: 1px solid gray;
+    /* border-right: 1px solid #dfdfdf; */
+    border-bottom: 1px solid #dfdfdf;
+    box-shadow: 1px 0 #fff, 0 1px #fff, 1px 1px #fff;
+  }
+
+  .desktop-icon-opened-nav-bar-search-container {
+    display: flex;
+    position: relative;
+    top: -3px;
+    height: 9vh;
+  }
+  .nav-bar-search-container-go {
+    text-overflow: clip;
+    text-align: center;
+    bottom: 2%;
+    position: absolute;
+    width: 12%;
+    z-index: 1000;
+    height: 35%;
+    right: -12px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: #c0c0c0;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+  }
+  .nav-bar-search-searchbar {
+    bottom: 3%;
+    background: white;
+    position: absolute;
+    width: 77%;
+    z-index: 1;
+    left: 14vw;
+    height: 34%;
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+  }
+  .desktop-icon-opened-nav-bar-search-container {
+    display: flex;
+    position: relative;
+    top: -3px;
+    height: 9vh;
+  }
+
+  .desktop-icon-opened-Avira-Content {
+    left: -6px;
+    top: 127.906px;
+    height: 52vh;
+    width: 102vw;
+    position: absolute;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: #c0c0c0;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+  }
+
+  .desktop-icon-opened-footer {
+    width: 100vw;
+    left: 1px;
+    height: 8%;
+    position: relative;
+    top: 50px;
+    margin: 3px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: #c0c0c0;
+    border-top: 1px solid gray;
+    border-left: 1px solid gray;
+    /* border-right: 1px solid #dfdfdf; */
+    border-bottom: 1px solid #dfdfdf;
+    box-shadow: 1px 0 #fff, 0 1px #fff, 1px 1px #fff;
+  }
+
+  .desktop-icon-opened-nav-bar-search-container {
+    display: flex;
+    position: relative;
+    top: -5px;
+    height: 9vh;
+  }
+
+  .iframeContainerLogo {
+    position: relative;
+    width: 240px;
+    left: 18px;
+    top: 214px;
+    z-index: 240;
+  }
+
+  .iframeLogo {
+    height: 57vh;
+    width: 99vw;
+  }
+
+  .desktop-icon-opened-top-bar-iframeLogo {
+    position: relative;
+    background: #fbbebb;
+    height: 3vh;
+    width: 318px;
+    z-index: 3000;
+  }
+
+  .desktop-icon-opened-nav-bar-options {
+    height: 30%;
+    position: relative;
+    /* margin-top: 2px; */
+    top: 2.5vh;
+    z-index: 33333;
+  }
+
+  .iframeContainerURL {
+    position: relative;
+    width: 320px;
+    left: 0px;
+  }
+
+  .desktop-icon-opened-top-bar-iframeURL {
+    position: relative;
+    background: #fbbebb;
+    height: 3vh;
+    width: 360px;
+    z-index: 3000;
+  }
+}
+
+@media only screen and (max-width: 413px) and (min-width: 414px) {
+  .desktop-container {
+    height: 100vh;
+    width: 100vw !important;
+    background-image: url(./images/clouds.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .taskbar {
+    position: absolute;
+    z-index: 2;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 27px;
+    display: flex;
+    flex: 1;
+    border: 1px solid black;
+    background: #fbbebb;
+    border-top: 1px solid white;
+  }
+
+  .start-button {
+    width: 68px;
+    background: #fbbebb;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+    box-shadow: inset 1px 1px #dfdfdf, 1px 0 #000, 0 1px #000, 1px 1px #000;
+    margin: 2px;
+    overflow-x: hidden;
+  }
+
+  .tray {
+    display: flex;
+    background: #fbbebb;
+    height: 85%;
+    width: 29%;
+    flex-direction: row;
+    position: absolute;
+    right: 4px;
+    box-shadow: 1px 1px 0 #707070 inset, -1px -1px 0 white inset;
+    margin: 2px;
+    bottom: 1px;
+  }
+
+  .start-menu-about-us-shown {
+    height: 20vh;
+    width: 165px;
+    position: absolute;
+    bottom: 28.3vh;
+    left: 207px;
+    background: #fbbebb;
+    border: 1px solid black;
+    text-align: center;
+    z-index: 333;
+  }
+
+  .big-avira-desktop-logo {
+    position: absolute;
+    /* z-index: 222; */
+    bottom: 9vh;
+    width: 27vw;
+    height: 15vh;
+    background-image: url(./images/aviraLogoFullSize-32x32.png);
+    background-size: cover;
+    right: 2vw;
+  }
+  .desktop-icon-opened-Avira-Content-2 {
+    height: 60vh;
+    width: 96vw;
+    position: absolute;
+    left: 0px;
+    top: 95.3906px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: #c0c0c0;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+  }
+
+  .top-bar-nav-options-x {
+    position: absolute;
+    right: 0;
+    width: 17px;
+    font-size: 9px;
+    background-image: url(./images/x-button.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 17px;
+    margin: 3px;
+  }
+  .top-bar-nav-options-min {
+    position: absolute;
+    right: 9vw;
+    width: 17px;
+    font-size: 9px;
+    background-image: url(./images/minimize-button.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 17px;
+    margin: 3px;
+  }
+  .top-bar-nav-options-max {
+    position: absolute;
+    right: 4.5vw;
+    width: 17px;
+    font-size: 9px;
+    background-image: url(./images/max-screen.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 17px;
+    margin: 3px;
+  }
+
+  .nav-bar-search-container-go {
+    text-overflow: clip;
+    text-align: center;
+    bottom: 5%;
+    position: absolute;
+    width: 9%;
+    height: 50%;
+    right: 1px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: #c0c0c0;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+  }
+  .nav-bar-search-searchbar {
+    bottom: 6%;
+    background: white;
+    position: absolute;
+    width: 74%;
+    left: 16vw;
+    height: 50%;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+  }
+  .nav-bar-search-container-home {
+    position: absolute;
+    bottom: 5%;
+    width: 10%;
+    height: 50%;
+    left: 24px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: #c0c0c0;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+  }
+
+  .nav-bar-search-container-goback {
+    bottom: 5%;
+    position: absolute;
+    width: 6%;
+    left: 0px;
+    height: 50%;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: #c0c0c0;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+  }
+
+  .desktop-icon-opened-nav-bar-options {
+    height: 40%;
+    position: relative;
+    /* margin-top: 2px; */
+    top: 1vh;
+  }
+
+  Content-2 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 45vh;
+    left: 1vw;
+    position: relative;
+    padding: 0px;
+  }
+
+  .inner-content-icon-logo3 {
+    background: white;
+    height: 32px;
+    width: 32px;
+    background-image: url(./images/aviraLogoFullSize-32x32.png);
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    left: 25px;
+    margin-top: 1vh;
+    background-repeat: no-repeat;
+  }
+
+  .desktop-icon-opened-Avira-Content {
+    height: 60vh;
+    width: 99vw;
+    position: absolute;
+    left: 4px;
+    top: 215.391px;
+
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: #c0c0c0;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+  }
+
+  .iframeLogo {
+    height: 42vh;
+  }
+
+  .desktop-icon-opened-AviraTxt {
+    left: 30vw;
+    top: 15vh;
+    height: 37vh;
+    width: 68vw;
+    position: absolute;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: #c0c0c0;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+  }
+
+  .iframeURL {
+    height: 410px;
+    width: 400px;
+    resize: both;
+    overflow: auto;
+  }
+}
+
+@media only screen and (max-width: 374px) and (min-width: 376px) {
+  .desktop-container {
+    height: 98vh;
+    max-height: 99vh;
+    width: 381px !important;
+    background-image: url(./images/clouds.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .big-avira-desktop-logo {
+    position: absolute;
+    z-index: 222;
+    bottom: 9vh;
+    width: 37vw;
+    height: 17vh;
+    background-image: url(./images/aviraLogoFullSize-32x32.png);
+    background-size: cover;
+    right: 2vw;
+  }
+
+  .tray {
+    display: flex;
+    background: #fbbebb;
+    height: 95%;
+    width: 29%;
+    flex-direction: row;
+    position: absolute;
+    right: 0;
+    box-shadow: 1px 1px 0 #707070 inset, -1px -1px 0 white inset;
+    margin: 2px;
+    bottom: -2px;
+  }
+
+  .start-menu-our-address-shown {
+    height: 21vh;
+    width: 165px;
+    position: absolute;
+    bottom: 13.4vh;
+    left: 170px;
+    background: #fbbebb;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 12px;
+    align-items: center;
+    z-index: 333;
+  }
+
+  .desktop-icon-opened-top-bar-iframeURL {
+    position: relative;
+    background: #fbbebb;
+    height: 3vh;
+    width: 350px;
+    z-index: 3000;
+  }
+
+  .iframeLogo {
+    height: 41vh;
+  }
+}
